@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ParserPageTest < ActiveSupport::TestCase
+class ParserSiteTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

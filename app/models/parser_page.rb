@@ -1,2 +1,0 @@
-class ParserPage < ApplicationRecord
-end
