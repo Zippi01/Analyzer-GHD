@@ -3,8 +3,10 @@ class ParserSitesController < ApplicationController
   require 'nokogiri'
 
   def index
-    source = 'http://shop1759.tk/'
-    page = Nokogiri::HTML(open(source.to_s))
-    puts page
+    source = 'https://hard.rozetka.com.ua/kingston_kc_s44240_6f/p70512518/comments/'
+    page = Nokogiri::HTML.parse(open(source))
+    h3 = page.css('div.product-comment div.product-comment__inner div.product-comment__body p').each do |link|
+      puts link.content
+    end
   end
 end
