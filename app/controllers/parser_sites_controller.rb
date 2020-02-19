@@ -12,7 +12,10 @@ class ParserSitesController < ApplicationController
     source = parser_pages_params
     page = Nokogiri::HTML.parse(open(source["url"]))
     page.css('div.product-comment div.product-comment__inner div.product-comment__body p').each do |link|
-      # puts link.content
+      word = link.content.split(" ")
+      word.each do |element|
+        puts element.gsub(/[!@%&",?.]/,'').downcase
+      end
       @parser_site = ParserSite.new(:comment => link.content.to_s, :url => source["url"])
       @parser_site.save
     end
