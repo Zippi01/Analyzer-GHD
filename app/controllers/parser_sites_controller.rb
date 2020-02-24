@@ -19,7 +19,7 @@ class ParserSitesController < ApplicationController
       # @parser_site = ParserSite.new(:comment => link.content.to_s, :url => source["url"])
       # @parser_site.save
     # end
-    ParserCreate.call(page)
+    ParserCreate.call(page, source)
   end
 
   private

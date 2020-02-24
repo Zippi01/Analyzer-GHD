@@ -1,8 +1,9 @@
 class ParserCreate < ApplicationService
   attr_reader :page
 
-  def initialize(page)
+  def initialize(page, source)
     @page = page
+    @source = source["url"]
   end
 
   def call
@@ -10,12 +11,18 @@ class ParserCreate < ApplicationService
       @comments_count = link.content
     end
 
-    puts @comments_count
+    puts "comments count", @comments_count
     @pages = @comments_count.to_f
     while (@pages. % 10) < 6
-      puts @pages += 1
+      @pages += 1
     end
-     @pages /= 10.0
-     puts @pages.round
+    @pages /= 10.0
+    puts "pages count", @pages.round
+    get_id_product_from_url
+    puts @source
+  end
+
+  def get_id_product_from_url
+    @source = @source.match("p[0-9]+").to_s.gsub(/p/, '')
   end
 end
