@@ -10,7 +10,6 @@ gem 'rails', '~> 6.0.2'
 gem 'pg'
 gem 'devise'
 gem 'omniauth-facebook'
-gem 'bootstrap'
 gem 'i18n'
 gem 'nokogiri'
 # Use Puma as the app server
