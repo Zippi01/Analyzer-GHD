@@ -95,6 +95,7 @@ GEM
     faraday (1.0.0)
       multipart-post (>= 1.2, < 3)
     ffi (1.12.2)
+    geocoder (1.6.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     hashie (3.6.0)
@@ -276,6 +277,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   devise
+  geocoder
   i18n
   jbuilder (~> 2.7)
   letter_opener

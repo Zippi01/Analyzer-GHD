@@ -16,7 +16,7 @@ class ParserCreate < ApplicationService
 
     puts "Product id:", @product_id
     @parse_url = Nokogiri::HTML(open("https://ek.ua/mtools/dot_output/mui_review.php?idg_=#{@product_id}&p_start_=1&p_end_=11000&callback=jQuery2240861719138234045_1582799940686&_=1582799940688"),  nil, Encoding::UTF_8.to_s)
-    @parse_url.css("span").each do |link|
+    @parse_url.css("div.\'review-comment'\ span").each do |link|
       puts link.content
       # word = link.content.split(" ")
       # word.each do |element|
