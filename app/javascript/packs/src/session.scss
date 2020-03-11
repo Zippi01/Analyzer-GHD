@@ -1,13 +1,13 @@
-.page{
+.page {
   width: 100%;
   height:100vh;
   font-family: sans-serif;
   background: rgba(78,52,201,1.0);
 }
 
-.box{
+.box {
   width: 380px;
-  padding: 40px;
+  padding: 25px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -18,13 +18,13 @@
   text-align: center;
 }
 
-.box h1{
+.box h1 {
   color: white;
   text-transform: uppercase;
   font-weight: 500;
 }
 
-.box input[type = "email"],.box input[type = "password"]{
+.box input[type = "email"],.box input[type = "password"] {
   border:0;
   background: none;
   display: block;
@@ -47,8 +47,27 @@
     color: white;
   }
 
-.check{
+.check {
   color: white;
+}
+
+.button {
+  color: white;
+}
+
+.facebook {
+  color: white;
+  font-size: 27px;
+}
+
+.facebook:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.button:hover {
+  color: #a29bfe;
+  text-decoration: none;
 }
 
 .box input[type = "email"]:focus,.box input[type = "password"]:focus{
