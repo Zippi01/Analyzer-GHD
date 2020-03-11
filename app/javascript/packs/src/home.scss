@@ -86,31 +86,31 @@
     border-radius:50%;
   }
 
-  .circle{
-    width:30px;
-    height:30px;
-    background:#C78EC2;
-    border-radius:50%;
-    position:absolute;
-    top:0; bottom:0; left:0;right:0;
-    overflow:hidden;
-    margin:auto;
-    animation: circle 6s linear infinite;
-  }
+  // .circle{
+  //   width:30px;
+  //   height:30px;
+  //   background:#C78EC2;
+  //   border-radius:50%;
+  //   position:absolute;
+  //   top:0; bottom:0; left:0;right:0;
+  //   overflow:hidden;
+  //   margin:auto;
+  //   animation: circle 6s linear infinite;
+  // }
 
-  @keyframes circle{
-    0%{
-      transform:rotate(0deg)
-                translate(-165px)
-                rotate(0deg);
-
-    }
-    100%{
-      transform:rotate(360deg)
-                translate(-165px)
-                rotate(-360deg);
-    }
-  }
+  // @keyframes circle{
+  //   0%{
+  //     transform:rotate(0deg)
+  //               translate(-165px)
+  //               rotate(0deg);
+  //
+  //   }
+  //   100%{
+  //     transform:rotate(360deg)
+  //               translate(-165px)
+  //               rotate(-360deg);
+  //   }
+  // }
 
   // .art{
   //     max-width: 10%;
@@ -118,4 +118,4 @@
   //     position:absolute;
   //     top:0; bottom:20%; left:0;right:40%;
   //     margin:auto;
-  }
+  // }
