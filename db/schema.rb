@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 2020_03_03_101831) do
     t.string "address"
     t.float "latitude"
     t.float "longitude"
+    t.float "rating"
+    t.integer "comment_count"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
