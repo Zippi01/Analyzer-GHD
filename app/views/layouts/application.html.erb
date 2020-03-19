@@ -7,6 +7,9 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <script src = "https://kit.fontawesome.com/ac7c51298a.js" crossorigin = "anonymous"></script>
+    <%= render 'shared/header' %>
     <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBZTzMEdD2iN5NkYojIHUeJtNi6_NIWla4'%>
 
     <% if user_signed_in? %>
@@ -121,7 +124,6 @@ function addMarker(location) {
 }
     </script>
   </head>
-
   <body>
     <%= yield(:head_tags) %>
     <%= yield %>
