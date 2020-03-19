@@ -7,6 +7,7 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBZTzMEdD2iN5NkYojIHUeJtNi6_NIWla4'%>
 
     <% if user_signed_in? %>
       <span>Здравствуйте, <%= current_user.email %></span>
@@ -14,10 +15,115 @@
     <% else %>
       <%= link_to 'Войти', new_user_session_path %> или <%= link_to 'Зарегистрироваться', new_user_registration_path %>
     <% end %>
-  
+    <script type="text/javascript">
+      // function initMap2() {
+      //   var lat = document.getElementById('place_latitude').value;
+      //   var lng = document.getElementById('place_longitude').value;
+      //
+      //   // if not defined create default position
+      //   if (!lat || !lng){
+      //     lat=51.5;
+      //     lng=-0.125;
+      //     document.getElementById('place_latitude').value = lat;
+      //     document.getElementById('place_longitude').value = lng;
+      //   }
+      //   var myCoords = new google.maps.LatLng(lat, lng);
+      //   var mapOptions = {
+      //     center: myCoords,
+      //     zoom: 14
+      //   };
+      //   var map = new google.maps.Map(document.getElementById('map2'), mapOptions);
+      //   var marker = new google.maps.Marker({
+      //     position: myCoords,
+      //     animation: google.maps.Animation.DROP,
+      //     map: map,
+      //     draggable: true
+      //   });
+      //   // refresh marker position and recenter map on marker
+      //   function refreshMarker(){
+      //     var lat = document.getElementById('place_latitude').value;
+      //     var lng = document.getElementById('place_longitude').value;
+      //     var myCoords = new google.maps.LatLng(lat, lng);
+      //     marker.setPosition(myCoords);
+      //     map.setCenter(marker.getPosition());
+      //   }
+      //   // when input values change call refreshMarker
+      //   document.getElementById('place_latitude').onchange = refreshMarker;
+      //   document.getElementById('place_longitude').onchange = refreshMarker;
+      //   // when marker is dragged update input values
+      //   marker.addListener('drag', function() {
+      //     latlng = marker.getPosition();
+      //     newlat=(Math.round(latlng.lat()*1000000))/1000000;
+      //     newlng=(Math.round(latlng.lng()*1000000))/1000000;
+      //     document.getElementById('place_latitude').value = newlat;
+      //     document.getElementById('place_longitude').value = newlng;
+      //   });
+      //   // When drag ends, center (pan) the map on the marker position
+      //   marker.addListener('dragend', function() {
+      //     map.panTo(marker.getPosition());
+      //   });
+      // }
+
+
+    </script>
+    <script type="text/javascript">
+      var markers = [];
+      function initMap2() {
+         var lat = document.getElementById('place_latitude').value;
+         var lng = document.getElementById('place_longitude').value;
+
+         // if not defined create default position
+         if (!lat || !lng){
+           lat=51.5;
+           lng=-0.125;
+           document.getElementById('place_latitude').value = lat;
+           document.getElementById('place_longitude').value = lng;
+         }
+         var myCoords = new google.maps.LatLng(lat, lng);
+         var mapOptions = {
+           center: myCoords,
+           zoom: 14
+         };
+         var map = new google.maps.Map(document.getElementById('map2'), mapOptions);
+        // var marker = new google.maps.Marker({
+        //   position: myCoords,
+        //   animation: google.maps.Animation.DROP,
+        //   map: map,
+        //   draggable: true
+        // });
+
+    // Add the circle for this city to the map.
+    var cityCircle = new google.maps.Circle({
+      strokeColor: '#FF0000',
+      strokeOpacity: 0.8,
+      strokeWeight: 2,
+      fillColor: '#FF0000',
+      fillOpacity: 0.35,
+      map: map,
+      center: myCoords,
+      radius: 199999.45454,
+      draggable:false
+    });
+
+  // This event listener will call addMarker() when the map is clicked.
+  cityCircle.addListener('click', function(event) {
+    addMarker(event.latLng);
+  });
+
+}
+// Adds a marker to the map and push to the array.
+function addMarker(location) {
+  var marker = new google.maps.Marker({
+    position: location,
+    map: map
+  });
+  markers.push(marker);
+}
+    </script>
   </head>
 
   <body>
+    <%= yield(:head_tags) %>
     <%= yield %>
   </body>
 </html>
