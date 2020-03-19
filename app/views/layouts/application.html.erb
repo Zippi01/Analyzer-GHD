@@ -12,12 +12,6 @@
     <%= render 'shared/header' %>
     <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBZTzMEdD2iN5NkYojIHUeJtNi6_NIWla4'%>
 
-    <% if user_signed_in? %>
-      <span>Здравствуйте, <%= current_user.email %></span>
-      <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %>
-    <% else %>
-      <%= link_to 'Войти', new_user_session_path %> или <%= link_to 'Зарегистрироваться', new_user_registration_path %>
-    <% end %>
     <script type="text/javascript">
       // function initMap2() {
       //   var lat = document.getElementById('place_latitude').value;
