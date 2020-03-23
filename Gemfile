@@ -7,7 +7,6 @@ ruby '2.6.3'
 gem 'rails', '~> 6.0.2'
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3', '~> 1.4'
-gem 'pg'
 gem 'devise'
 
 gem 'omniauth'
@@ -63,6 +62,7 @@ group :development do
   gem 'capistrano-nginx', '~> 1.0'
   gem 'capistrano-upload-config', '~> 0.7.0'
   gem 'sshkit-sudo', '~> 0.1.0'
+  gem 'pg'
 end
 
 group :test do
