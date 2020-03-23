@@ -19,6 +19,9 @@ import './src/session.scss'
 import "./src/places.scss"
 import "./src/maps.js"
 
+import 'bootstrap'
+import './src/application.scss'
+
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

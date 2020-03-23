@@ -16,7 +16,6 @@ gem 'omniauth-github'
 gem 'activerecord-session_store'
 
 gem 'pg'
-gem 'bootstrap'
 
 gem 'i18n'
 gem 'nokogiri'
