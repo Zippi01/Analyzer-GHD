@@ -19,6 +19,9 @@ gem 'activerecord-session_store'
 gem 'bootstrap'
 
 gem 'i18n'
+gem 'nokogiri'
+gem 'mechanize'
+gem 'geocoder'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
