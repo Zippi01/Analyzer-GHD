@@ -9,7 +9,15 @@ gem 'rails', '~> 6.0.2'
 #gem 'sqlite3', '~> 1.4'
 gem 'pg'
 gem 'devise'
+
+gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-github'
+gem 'activerecord-session_store'
+
+gem 'bootstrap'
+
 gem 'i18n'
 gem 'nokogiri'
 gem 'mechanize'
