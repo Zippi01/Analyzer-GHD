@@ -20,7 +20,6 @@ set :puma_conf, "#{shared_path}/config/puma.rb"
 
 require "bundler/capistrano"
 
-set :bundle_cmd, '/path/to/bundle'
 
 namespace :deploy do
   before 'check:linked_files', 'config:push'
