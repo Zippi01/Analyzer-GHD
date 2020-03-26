@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <table class="table">
+      <tr>
+        <td>Custom rating</td>
+        <td>Comment count</td>
+        <td>Rate from map</td>
+      </tr>
+    <% @places_json.each do |place| %>
+      <tr>
+        <td><%= eval(sprintf("%8.2f",place['rating'])) %></td>
+        <td><%= place['comment_count'] %></td>
+        <td><%= place['rate'] %></td>
+      </tr>
+    <% end %>
+
+  </body>
+</html>

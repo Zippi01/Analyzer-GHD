@@ -28,23 +28,26 @@ class PlacesController < ApplicationController
      #     format.js {}
      #   end
      # end
-     source = place_params
-     puts (place_params["rating"])
-     puts (place_params["comment_count"])
-     rate = place_params["rating"].split("; ")
-     rate = rate.map(&:to_f)
-     comments_count = place_params["comment_count"].split("; ")
-     comments_count = comments_count.map(&:to_f)
-     @elem = 0
-     rate.each do |elem|
-       @elem += elem
-     end
-     @elem /= rate.size
-     # puts (@elem)
-     rate.each_with_index do |elem, i|
-       @rating = (comments_count[i] / comments_count[i] + @@m) * elem + (@@m / comments_count[i] + @@m) * @elem
-       puts(@rating)
-     end
+     PlacesJob.perform_later place_params
+     # @user = User.find_by_email(current_user.email)
+     # source = place_params
+     # puts (place_params["rating"])
+     # puts (place_params["comment_count"])
+     # rate = place_params["rating"].split("; ")
+     # rate = rate.map(&:to_f)
+     # comments_count = place_params["comment_count"].split("; ")
+     # comments_count = comments_count.map(&:to_f)
+     # @elem = 0
+     # rate.each do |elem|
+     #   @elem += elem
+     # end
+     # @elem /= rate.size
+     # # puts (@elem)
+     # rate.each_with_index do |elem, i|
+     #   @rating = (comments_count[i] / comments_count[i] + @@m) * elem + (@@m / comments_count[i] + @@m) * @elem
+     #   puts(@rating)
+     # end
+     # PlaceMailer.with(place: @result).welcome_email.deliver
    end
 
    def update
