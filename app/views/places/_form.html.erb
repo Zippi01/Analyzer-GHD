@@ -1,8 +1,91 @@
-<% provide :head_tags do %>
-  <script>
-    document.addEventListener("turbolinks:load", initMap2());
+<div id="map"></div>
+<div id="right-panel">
+  <h2>Results</h2>
+  <ul id="places"></ul>
+  <button id="more">More results</button>
+</div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZTzMEdD2iN5NkYojIHUeJtNi6_NIWla4&libraries=places&callback=initMap" async defer></script>
+<script type="text/javascript">
+    var map;
+    var nameAddress = "";
+    var address = "";
+    function initMap() {
+      // Create the map.
+      var pyrmont = {lat: 49.434653, lng: 32.007991};
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: pyrmont,
+        zoom: 17
+      });
+
+      // Create the places service.
+      var service = new google.maps.places.PlacesService(map);
+      var getNextPage = null;
+
+
+      var moreButton = document.getElementById('more');
+      moreButton.onclick = function() {
+        moreButton.disabled = true;
+        if (getNextPage) getNextPage();
+      };
+
+      // Perform a nearby search.
+      service.nearbySearch(
+      {location: pyrmont, radius: 100, type: ['store']},
+      function(results, status, pagination) {
+        if (status !== 'OK') return;
+
+        createMarkers(results);
+        moreButton.disabled = !pagination.hasNextPage;
+        getNextPage = pagination.hasNextPage && function() {
+          pagination.nextPage();
+        };
+      });
+    }
+    var loc;
+    function createMarkers(places) {
+      var bounds = new google.maps.LatLngBounds();
+      var placesList = document.getElementById('places');
+
+      for (var i = 0, place; place = places[i]; i++) {
+        var image = {
+          url: place.icon,
+          size: new google.maps.Size(71, 71),
+          origin: new google.maps.Point(0, 0),
+          anchor: new google.maps.Point(17, 34),
+          scaledSize: new google.maps.Size(25, 25)
+        };
+
+        var marker = new google.maps.Marker({
+          map: map,
+          icon: image,
+          title: place.name,
+          position: place.geometry.location
+        });
+
+        // geocoder.geocode({'placeId': place.place_id}, function(results, status) {
+        //   console.log(results[0]);
+        //   console.log(address)
+        //   callback(results[0].formatted_address.toString());
+        // });
+
+        var li = document.createElement('li');
+        li.textContent = place.name;
+        nameAddress += place.name + " " + place.vicinity + "; ";
+        placesList.appendChild(li);
+
+        bounds.extend(place.geometry.location);
+      }
+      console.log(nameAddress)
+      map.fitBounds(bounds);
+      document.getElementById("place_name").value = nameAddress.toString();
+    }
   </script>
-<% end %>
+
+<%# provide :head_tags do %>
+  <!-- <script>
+    document.addEventListener("turbolinks:load", initMap());
+  </script> -->
+<%# end %>
 
 <%= form_with(model: place, local: true) do |form| %>
   <% if place.errors.any? %>
@@ -18,39 +101,12 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :place_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address, id: :place_address %>
-  </div>
-
-  <div class="field">
-    <%= form.label :latitude %>
-    <%= form.text_field :latitude, id: :place_latitude %>
-  </div>
-
-  <div class="field">
-    <%= form.label :longitude %>
-    <%= form.text_field :longitude, id: :place_longitude %>
-  </div>
-
-  <div class="field">
-    <%= form.label :rating %>
-    <%= form.text_field :rating, id: :place_rating %>
-  </div>
-
-  <div class="field">
-    <%= form.label :comment_count %>
-    <%= form.text_field :comment_count, id: :place_comments %>
+    <%= form.hidden_field :name, id: :place_name %>
   </div>
 
   <div class="actions">
     <%= form.submit %>
   </div>
 
-  <div id="map2"></div>
 
 <% end %>
