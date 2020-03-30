@@ -1,6 +1,7 @@
+<br>
 <%= render "devise/shared/error_messages", resource: resource %>
 <div class="page">
-  <form class="box">
+  <div class="box">
   <h1>Signup</h1>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name),html: {class: 'signup-form'}) do |f| %>
 
@@ -17,5 +18,5 @@
 
     <%= render "devise/shared/links" %>
   <% end %>
-  </form>
+  </div>
 </div>
