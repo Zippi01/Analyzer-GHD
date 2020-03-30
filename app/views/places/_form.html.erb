@@ -62,15 +62,9 @@
           position: place.geometry.location
         });
 
-        // geocoder.geocode({'placeId': place.place_id}, function(results, status) {
-        //   console.log(results[0]);
-        //   console.log(address)
-        //   callback(results[0].formatted_address.toString());
-        // });
-
         var li = document.createElement('li');
         li.textContent = place.name;
-        nameAddress += place.name + " " + place.vicinity + "; ";
+        nameAddress += place.place_id + "; " //+ "?" + place.geometry.location + "; " + place.plus_code;
         placesList.appendChild(li);
 
         bounds.extend(place.geometry.location);

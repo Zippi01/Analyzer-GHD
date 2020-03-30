@@ -21,6 +21,7 @@ gem 'i18n'
 gem 'nokogiri'
 gem 'mechanize'
 gem 'geocoder'
+gem 'httparty'
 # gem 'sidekiq'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'

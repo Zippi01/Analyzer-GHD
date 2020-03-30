@@ -14,7 +14,14 @@ class PlacesController < ApplicationController
 
 
    def create
-     PlacesJob.perform_later place_params
+     if current_user
+       @email = current_user.email
+       PlacesJob.perform_later place_params, @email
+     else
+       flash[:notice] = "You must be login"
+       redirect_to root_path
+     end
+     # puts current_user
    end
 
 
