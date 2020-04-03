@@ -53,10 +53,10 @@ class PlacesJob < ApplicationJob
       if(elem != 0)
         @rating = (comments_count[i] / comments_count[i] + @@m) * elem + (@@m / comments_count[i] + @@m) * @avarage_score
         # json = JSON.parse({"rating": #{@rating}}")
-        my_hash << {:rating => "#{@rating}", :comment_count => "#{comments_count[i]}", :rate => "#{elem}"}
+        my_hash << {rating: "#{@rating}", comment_count: "#{comments_count[i]}", rate: "#{elem}", name: "#{place_name[i]}", address: "#{place_address[i]}"}
       else
         @rating = 0
-        my_hash << {:rating => "#{@rating}", :comment_count => "#{comments_count[i]}", :rate => "#{elem}"}
+        my_hash << {rating: "#{@rating}", comment_count: "#{comments_count[i]}", rate: "#{elem}", name: "#{place_name[i]}", address: "#{place_address[i]}"}
       end
     end
     places_json = my_hash.to_json

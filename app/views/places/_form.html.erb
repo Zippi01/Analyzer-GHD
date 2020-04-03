@@ -1,3 +1,4 @@
+<input type="text" name="" value="">
 <div id="map"></div>
 <div id="right-panel">
   <h2>Results</h2>
@@ -9,13 +10,43 @@
     var map;
     var nameAddress = "";
     var address = "";
+    var previousMarker;
+    var lat = 0;
+    var lng = 0;
+    var li = document.createElement('li');
     function initMap() {
       // Create the map.
-      var pyrmont = {lat: 49.434653, lng: 32.007991};
+      if(lat != 0) {
+      var pyrmont = {lat: lat, lng: lng};
+    } else {
+      var pyrmont = {lat: 49.451703, lng: 32.045537};
+    }
       map = new google.maps.Map(document.getElementById('map'), {
         center: pyrmont,
         zoom: 17
       });
+
+      map.addListener('click', function(e) {
+       // if the previousMarker exists, remove it
+       if (previousMarker)
+         previousMarker.setMap(null);
+
+       latLng = e.latLng;
+
+       lat = e.latLng.lat()
+       lng = e.latLng.lng()
+       console.log(lat);
+       console.log(lng);
+       initMap();
+       //image = clientURL + "/common/images/markers/red.png";
+       console.log("Marker");
+       previousMarker = new google.maps.Marker({
+         position: latLng,
+         map: map
+       });
+     }
+
+   );
 
       // Create the places service.
       var service = new google.maps.places.PlacesService(map);
@@ -62,7 +93,7 @@
           position: place.geometry.location
         });
 
-        var li = document.createElement('li');
+
         li.textContent = place.name;
         nameAddress += place.place_id + "; " //+ "?" + place.geometry.location + "; " + place.plus_code;
         placesList.appendChild(li);
@@ -72,6 +103,8 @@
       console.log(nameAddress)
       map.fitBounds(bounds);
       document.getElementById("place_name").value = nameAddress.toString();
+      nameAddress = "";
+      li.textContent = "";
     }
   </script>
 

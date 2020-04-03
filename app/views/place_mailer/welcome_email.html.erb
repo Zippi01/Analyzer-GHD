@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <meta charset="utf-8">
   </head>
   <body>
     <table class="table">
@@ -9,14 +9,17 @@
         <td>Custom rating</td>
         <td>Comment count</td>
         <td>Rate from map</td>
+        <td>Name</td>
+        <td>Address</td>
       </tr>
     <% @places_json.each do |place| %>
       <tr>
         <td><%= eval(sprintf("%8.2f",place['rating'])) %></td>
         <td><%= place['comment_count'] %></td>
         <td><%= place['rate'] %></td>
+        <td><%= place['name'] %></td>
+        <td><%= place['address'] %></td>
       </tr>
     <% end %>
-
   </body>
 </html>
