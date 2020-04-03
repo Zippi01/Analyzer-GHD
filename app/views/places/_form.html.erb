@@ -3,7 +3,7 @@
 <div id="right-panel">
   <h2>Results</h2>
   <ul id="places"></ul>
-  <button id="more">More results</button>
+  <!-- <button id="more">More results</button> -->
 </div>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZTzMEdD2iN5NkYojIHUeJtNi6_NIWla4&libraries=places&callback=initMap" async defer></script>
 <script type="text/javascript">
@@ -13,7 +13,6 @@
     var previousMarker;
     var lat = 0;
     var lng = 0;
-    var li = document.createElement('li');
     function initMap() {
       // Create the map.
       if(lat != 0) {
@@ -38,8 +37,6 @@
        console.log(lat);
        console.log(lng);
        initMap();
-       //image = clientURL + "/common/images/markers/red.png";
-       console.log("Marker");
        previousMarker = new google.maps.Marker({
          position: latLng,
          map: map
@@ -51,13 +48,6 @@
       // Create the places service.
       var service = new google.maps.places.PlacesService(map);
       var getNextPage = null;
-
-
-      var moreButton = document.getElementById('more');
-      moreButton.onclick = function() {
-        moreButton.disabled = true;
-        if (getNextPage) getNextPage();
-      };
 
       // Perform a nearby search.
       service.nearbySearch(
@@ -94,9 +84,11 @@
         });
 
 
+        var li = document.createElement('li');
         li.textContent = place.name;
         nameAddress += place.place_id + "; " //+ "?" + place.geometry.location + "; " + place.plus_code;
         placesList.appendChild(li);
+        // li.textContent = "";
 
         bounds.extend(place.geometry.location);
       }
@@ -104,7 +96,6 @@
       map.fitBounds(bounds);
       document.getElementById("place_name").value = nameAddress.toString();
       nameAddress = "";
-      li.textContent = "";
     }
   </script>
 
