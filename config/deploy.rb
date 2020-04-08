@@ -5,7 +5,7 @@ set :application, 'analyzer'
 set :repo_url, 'https://github.com/Zippi01/Analyzer-GHD'
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 set :user, 'deployer'
-server '134.122.83.64', user: "#{fetch(:user)}", roles: %w{app db web}, primary: true
+server '161.35.17.103', user: "#{fetch(:user)}", roles: %w{app db web}, primary: true
 set :deploy_to,       "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
 set :pty, true
 
