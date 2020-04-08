@@ -17,7 +17,7 @@ import './src/wave.scss'
 import './src/session.scss'
 
 import "./src/places.scss"
-import "./src/maps.js"
+import "./src/map.scss"
 
 import 'bootstrap'
 import './src/application.scss'

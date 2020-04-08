@@ -1,14 +1,6 @@
 <br>
 <br>
-<% provide :head_tags do %>
-<meta name="turbolinks-visit-control" content="reload">
-  <script>
-    document.addEventListener("turbolinks:load", function(){
-      initMap(<%= @place.latitude %>, <%= @place.longitude %>)
-    });
 
-  </script>
-<% end %>
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -39,17 +31,17 @@
 
 
 <script>
-  function initMap(lat, lng) {
-    var myCoords = new google.maps.LatLng(lat, lng);
-    var mapOptions = {
-    center: myCoords,
-    zoom: 14
-    };
-    var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
-    var marker = new google.maps.Marker({
-    position: myCoords,
-    map: map
-  });
-}
+//   function initMap(lat, lng) {
+//     var myCoords = new google.maps.LatLng(lat, lng);
+//     var mapOptions = {
+//     center: myCoords,
+//     zoom: 14
+//     };
+//     var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+//
+//     var marker = new google.maps.Marker({
+//     position: myCoords,
+//     map: map
+//   });
+// }
 </script>
