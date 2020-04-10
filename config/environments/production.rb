@@ -15,7 +15,7 @@ Rails.application.configure do
       port: 587,
       domain: 'analyzer-ghd.tk',
       user_name: 'ayarem21',
-      password: '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',
+      password: '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',
       authentication: 'plain',
       enable_starttls_auto: true
     }
