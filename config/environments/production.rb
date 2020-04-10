@@ -9,6 +9,7 @@ Rails.application.configure do
       password: '63bafama',
       authentication: 'plain',
       enable_starttls_auto: true }
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
