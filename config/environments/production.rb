@@ -8,7 +8,8 @@ Rails.application.configure do
       user_name: 'testrorstore@gmail.com',
       password: '63bafama',
       authentication: 'plain',
-      enable_starttls_auto: true }
+      # enable_starttls_auto: true 
+    }
 
   # Settings specified here will take precedence over those in config/application.rb.
 
