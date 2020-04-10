@@ -12,13 +12,14 @@ Rails.application.configure do
   #   }
   config.action_mailer.smtp_settings = {
       address: 'smtp.sendgrid.net',
-      port: 465,
+      port: 587,
       domain: 'analyzer-ghd.tk',
-      user_name: 'ayarem21',
-      password: '63bafamama',
+      user_name: 'someKey',
+      password: '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',
       authentication: 'plain',
       enable_starttls_auto: true
     }
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
