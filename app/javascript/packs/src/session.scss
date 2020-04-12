@@ -92,3 +92,13 @@
 .box input[type = "submit"]:hover{
   background: #00b894;
 }
+
+.error_message {
+  color: white;
+  // box-shadow: 0 0 10px 10px rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.2);
+}
+.error_message:hover {
+  outline:none;
+  border:none;
+}
