@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FinalGh</title>
+    <title>Analyzer-GHD</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -12,6 +12,7 @@
     <%= render 'shared/header' %>
   </head>
   <body>
+    <p id="notice"><%= notice %></p>
     <%= yield(:head_tags) %>
     <%= yield %>
   </body>

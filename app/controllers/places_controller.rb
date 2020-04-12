@@ -3,11 +3,6 @@ class PlacesController < ApplicationController
 
   @@m = 500
 
-   def index
-     @places = Place.all
-   end
-
-
    def new
      @place = Place.new
    end
@@ -17,6 +12,8 @@ class PlacesController < ApplicationController
      if current_user
        @email = current_user.email
        PlacesJob.perform_later place_params, @email
+       flash[:notice] = "We send result to #{@email}"
+       redirect_to root_path
      else
        flash[:notice] = "You must be login"
        redirect_to root_path

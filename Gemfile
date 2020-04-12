@@ -16,7 +16,7 @@ gem 'omniauth-github'
 gem 'activerecord-session_store'
 
 gem 'pg'
-
+gem 'devise-i18n'
 gem 'i18n'
 gem 'nokogiri'
 gem 'mechanize'

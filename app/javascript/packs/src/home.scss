@@ -53,36 +53,95 @@
   border-radius:50%;
 }
 
-  // .circle{
-  //   width:30px;
-  //   height:30px;
-  //   background:#C78EC2;
-  //   border-radius:50%;
-  //   position:absolute;
-  //   top:0; bottom:0; left:0;right:0;
-  //   overflow:hidden;
-  //   margin:auto;
-  //   animation: circle 6s linear infinite;
-  // }
+.landing-con-contribute {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 700px;
+    min-height: 600px;
+    max-height: 938px;
+    background: #fff;
+}
 
-  // @keyframes circle{
-  //   0%{
-  //     transform:rotate(0deg)
-  //               translate(-165px)
-  //               rotate(0deg);
-  //
-  //   }
-  //   100%{
-  //     transform:rotate(360deg)
-  //               translate(-165px)
-  //               rotate(-360deg);
-  //   }
-  // }
+.content-con-outside {
+    position: relative;
+    max-width: 1220px;
+    height: 100%;
+    margin: 0 auto;
+    z-index: 1;
+}
 
-  // .art{
-  //     max-width: 10%;
-  //     color: #fff;
-  //     position:absolute;
-  //     top:0; bottom:20%; left:0;right:40%;
-  //     margin:auto;
-  // }
+.content-con-inside {
+    position: relative;
+    height: 100%;
+    margin-right: 60px;
+    margin-left: 60px;
+}
+
+.map-con-container {
+    height: 500px;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    margin-top: -250px;
+}
+
+.map-con-mantra {
+    width: 55%;
+    height: 100%;
+    float: left;
+    position: relative;
+}
+
+.map-con-logo {
+    width: 45%;
+    height: 100%;
+    float: left;
+}
+
+.map-img-logo {
+    height: 100%;
+    width: 100%;
+}
+
+.map-tx1-mantra {
+    font-size: 50px;
+    line-height: 64px;
+    height: auto;
+    padding-left: 100px;
+    color: #000;
+    margin-bottom: 20px;
+    text-rendering: optimizeLegibility;
+}
+
+.map-tx2-mantra {
+    font-family: arial,sans-serif;
+    font-size: 16px;
+    line-height: 30px;
+    padding-left: 100px;
+    color: #000;
+}
+
+.map-wrp-mantra {
+    height: auto;
+    width: auto;
+    position: absolute;
+    top: 50%;
+    margin-top: -150px;
+}
+
+.map-tx2-mantra p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.map-tx1-mantra h2 {
+  font-weight: inherit;
+  font-style: inherit;
+  margin: 0;
+  padding: 0;
+  color: inherit;
+}
