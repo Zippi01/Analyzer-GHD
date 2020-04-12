@@ -1,31 +1,30 @@
-
-
 <div class="page-con-container">
   <div class="page-in-container">
     <div class="slider_position">
       <input type="range" id="radius" name="rangeInput" min="100" max="1000" onchange="updateTextInput(this.value);" class="slider">
       <input  id="textInput"  class="input_st" value="50" disabled>%
-
     </div>
     <div class="select_position">
         <select id="category" class="browser-default custom-select select_size" >
-          <option value="clothing_store" >clothing_store</option>
-          <option value="drugstore">drugstore</option>
-          <option value="electronics_store">electronics_store</option>
-          <option value="pet_store">pet_store</option>convenience_store
-          <option value="store">store</option>
+          <option value="clothing_store" >Clothing store</option>
+          <option value="drugstore">Pharmacy</option>
+          <option value="electronics_store">Electronics store</option>
+          <option value="pet_store">Pet store</option>
+          <option value="cafe">Cafe</option>
+          <option value="restaurant">Restaurant</option>
+          <option value="supermarket">Supermarket</option>
+          <option value="beauty_salon">Beauty salon</option>
+          <option value="store">Store</option>
         </select>
       </div>
 
       <div class="button_position">
 
-      <button id="more" onclick="initMap()" class="results-btn results-btn-tx1 "><i class="fas fa-redo ico-button"></i>More results</button>
-
+      <button id="more" onclick="initMap()" class="results-btn results-btn-tx1 "><i class="fas fa-redo ico-button"></i>Reload map</button>
       <%= form_with(model: place, local: true) do |form| %>
       <% if place.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(place.errors.count, "error") %> prohibited this place from being saved:</h2>
-
         <ul>
           <% place.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -33,34 +32,23 @@
         </ul>
       </div>
       <% end %>
-
       <div class="field">
         <%= form.hidden_field :name, id: :place_name %>
       </div>
 
       <div class="actions">
-        <!-- <i class="far fa-envelope"> -->
-        <%#= form.submit "Create place", class:" create-btn-button results-btn-tx1"%>
-        <!-- </i> -->
           <%= button_tag type: 'submit', class: "create-btn-button results-btn-tx1", id: "register-button" do %>
           <i class="far fa-envelope-open ico-button"></i>
-          Create place
+          Send results
         <% end %>
       </div>
       <% end %>
     </div>
-
-
-
-    </div>
+  </div>
 </div>
-
 <div class="position_map">
   <div id="map"></div>
 </div>
-
-
-
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZTzMEdD2iN5NkYojIHUeJtNi6_NIWla4&libraries=places&callback=initMap" async defer></script> <!--callback=initMap-->
 <script type="text/javascript">
     var map;
@@ -140,11 +128,7 @@
           position: place.geometry.location
         });
 
-        // var li = document.createElement('li');
-        // li.textContent = place.name;
-        nameAddress += place.place_id + "; " //+ "?" + place.geometry.location + "; " + place.plus_code;
-        // placesList.appendChild(li);
-        // li.textContent = "";
+        nameAddress += place.place_id + "; "
 
         bounds.extend(place.geometry.location);
       }
@@ -155,8 +139,6 @@
     }
 
     function updateTextInput(val) {
-
       document.getElementById('textInput').value = Math.round(val*100/1000);
-
     }
   </script>
