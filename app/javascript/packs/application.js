@@ -15,6 +15,7 @@ import './src/home.scss'
 import './src/navbar.scss'
 import './src/wave.scss'
 import './src/session.scss'
+import './src/footer.scss'
 
 import "./src/places.scss"
 import "./src/map.scss"

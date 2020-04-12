@@ -63,6 +63,7 @@ group :development do
   gem 'capistrano3-puma', github: "seuros/capistrano-puma"
   gem 'capistrano-nginx', '~> 1.0'
   gem 'capistrano-upload-config', '~> 0.7.0'
+  gem 'capistrano-rails-console', require: false
   gem 'sshkit-sudo', '~> 0.1.0'
 end
 
