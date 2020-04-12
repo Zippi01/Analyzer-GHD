@@ -10,15 +10,15 @@ Rails.application.configure do
   #     authentication: 'login',
   #     enable_starttls_auto: true
   #   }
-  config.action_mailer.smtp_settings = {
-      address: 'smtp.sendgrid.net',
-      port: 587,
-      domain: 'analyzer-ghd.tk',
-      user_name: 'ayarem21',
-      password: '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',
-      authentication: 'plain',
-      enable_starttls_auto: true
-    }
+  ActionMailer::Base.smtp_settings = {
+    address: 'smtp.sendgrid.net',
+    port: 587,
+    domain: 'yourdomain.com',
+    user_name: 'ayarem21',
+    password: '63bafamama',
+    authentication: :login,
+    enable_starttls_auto: true
+  }
 
   # Settings specified here will take precedence over those in config/application.rb.
 
