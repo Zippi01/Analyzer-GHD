@@ -18,7 +18,6 @@ class PlacesController < ApplicationController
        flash[:notice] = "You must be login"
        redirect_to root_path
      end
-     # puts current_user
    end
 
 
