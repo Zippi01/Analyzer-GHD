@@ -13,7 +13,7 @@ class OmniauthController < ApplicationController
   def github
   @user = User.create_from_provider_data(request.env['omniauth.auth'])
     if @user.persisted?
-      sign_in_and_redirect @user
+      redirect_to root_path
       flash[:notice] = 'You must activate account. We send instriction to you email'
     else
       redirect_to new_user_registration_url
