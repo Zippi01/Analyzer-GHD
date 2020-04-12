@@ -6,7 +6,6 @@ class User < ApplicationRecord
          :recoverable,
          :rememberable,
          :validatable,
-         :confirmable,
          :omniauthable,
          omniauth_providers: %i[facebook github google_oauth2]
 

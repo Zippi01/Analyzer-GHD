@@ -13,7 +13,7 @@ class OmniauthController < ApplicationController
   def github
   @user = User.create_from_provider_data(request.env['omniauth.auth'])
     if @user.persisted?
-      redirect_to root_path
+      sign_in_and_redirect @user
       flash[:notice] = 'You must activate account. We send instriction to you email(If your account is already active, please ignore this message)'
     else
       redirect_to new_user_registration_url
@@ -24,8 +24,8 @@ class OmniauthController < ApplicationController
   def google_oauth2
   @user = User.create_from_provider_data(request.env['omniauth.auth'])
     if @user.persisted?
-      redirect_to root_path
-      flash[:notice] = 'You must activate account. We send instriction to you email(If your account is already active, please ignore this message)'
+      sign_in_and_redirect @user
+      flash[:notice] = 'You must activate account. We send instriction to you email'
     else
       redirect_to new_user_registration_url
       flash[:notice] = 'There was a problem signing you in through Google. Please register or try signing in later.'
@@ -34,6 +34,6 @@ class OmniauthController < ApplicationController
 
   def failure
     redirect_to root_path
-    flash[:notice] = 'There was a problem signing you in. Please register or try signing in later.'
+    # flash[:notice] = 'There was a problem signing you in. Please register or try signing in later.'
   end
 end
