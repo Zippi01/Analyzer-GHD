@@ -38,10 +38,10 @@
           <div class="user-nav">
             <%= current_user.email %>
           </div>
-          <%= link_to "Sign out", destroy_user_session_path, method: :delete, class:'menu-btn-select'%>
+          <%= link_to "Вийти", destroy_user_session_path, method: :delete, class:'menu-btn-select'%>
         <% else %>
-          <%= link_to "Sign in", new_user_session_path, class:' menu-btn-select'  %>
-          <%= link_to "Sign up", new_user_registration_path, class:'menu-btn-select'%>
+          <%= link_to "Вхід", new_user_session_path, class:' menu-btn-select'  %>
+          <%= link_to "Реєстрація", new_user_registration_path, class:'menu-btn-select'%>
         <% end %>
       </ul>
     </div>

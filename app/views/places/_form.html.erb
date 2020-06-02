@@ -6,21 +6,21 @@
     </div>
     <div class="select_position">
         <select id="category" class="browser-default custom-select select_size" >
-          <option value="clothing_store" >Clothing store</option>
-          <option value="drugstore">Pharmacy</option>
-          <option value="electronics_store">Electronics store</option>
-          <option value="pet_store">Pet store</option>
-          <option value="cafe">Cafe</option>
-          <option value="restaurant">Restaurant</option>
-          <option value="supermarket">Supermarket</option>
-          <option value="beauty_salon">Beauty salon</option>
-          <option value="store">Store</option>
+          <option value="store">Магазин</option>
+          <option value="clothing_store" >Магазин одягу</option>
+          <option value="electronics_store">Магазин електроніки</option>
+          <option value="supermarket">Супермаркет</option>
+          <option value="pet_store">Зоомагазин</option>
+          <option value="beauty_salon">Салон краси</option>
+          <option value="drugstore">Аптека</option>
+          <option value="cafe">Кафе</option>
+          <option value="restaurant">Ресторан</option>
         </select>
       </div>
 
       <div class="button_position">
 
-      <button id="more" onclick="initMap()" class="results-btn results-btn-tx1 "><i class="fas fa-redo ico-button"></i>Reload map</button>
+      <button id="more" onclick="initMap()" class="results-btn results-btn-tx1 "><i class="fas fa-redo ico-button"></i>Оновити карту</button>
       <%= form_with(model: place, local: true) do |form| %>
       <% if place.errors.any? %>
       <div id="error_explanation">
@@ -39,7 +39,7 @@
       <div class="actions">
           <%= button_tag type: 'submit', class: "create-btn-button results-btn-tx1", id: "register-button" do %>
           <i class="far fa-envelope-open ico-button"></i>
-          Send results
+          Надіслати результат
         <% end %>
       </div>
       <% end %>

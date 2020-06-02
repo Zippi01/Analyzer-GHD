@@ -12,10 +12,10 @@ class PlacesController < ApplicationController
      if current_user
        @email = current_user.email
        PlacesJob.perform_later place_params, @email
-       flash[:notice] = "We send result to #{@email}"
+       flash[:notice] = "Результат надісланий на #{@email}!"
        redirect_to root_path
      else
-       flash[:notice] = "You must be login"
+       flash[:notice] = "Ви повинні ввійти в систему!"
        redirect_to root_path
      end
    end
